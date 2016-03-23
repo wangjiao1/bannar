@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="reset.css"/>
+    <style type="text/css">
+        body {
+            font-family: "Microsoft Yahei";
+        }
+
+        .left-nav {
+            position: relative;
+            float: left;
+            margin: 100px 0 0 100px;
+            width: 210px;
+            border-left: 1px solid #b61d1d;
+            border-bottom: 1px solid #b61d1d;
+        }
+
+        .left-nav dt {
+            background: #B1191A;
+            padding-left: 10px;
+        }
+
+        .left-nav dt a {
+            line-height: 46px;
+            color: #fff;
+        }
+
+        .left-nav dd {
+            background-color: #c81623;
+        }
+
+        .right-list {
+            display: none;
+            position: absolute;
+            left: 210px;
+            top: 45px;
+            margin-left: -1px;
+            width: 1000px;
+            height: 465px;
+            background-color: #f7f7f7;
+            border: 1px solid #b61d1d;
+            z-index: -1;
+        }
+
+        .left-title {
+            position: relative;
+            line-height: 31px;
+            font-size: 14px;
+            color: #fff;
+            padding-left: 10px;
+        }
+
+        .left-title .ico {
+            position: absolute;
+            z-index: 1;
+            right: 14px;
+            font-family: consolas;
+        }
+
+        dd.cur .left-title {
+            color: #b61d1d;
+            background-color: #f7f7f7;
+        }
+
+        dd.cur span {
+            color: #f7f7f7;
+        }
+
+        dd.cur .right-list {
+            display: block;
+        }
+
+        .banner-box {
+            position: relative;
+            float: left;
+            margin: 158px 0 0 10px;
+            width: 730px;
+            height: 454px;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .tips {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            margin-left: -65px;
+
+        }
+
+        .tips li {
+            float: left;
+            background-color: #3e3e3e;
+            border-radius: 50%;
+            padding: 3px;
+            margin-left: 3px;
+            line-height: 12px;
+            width: 12px;
+            height: 12px;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tips li.cur {
+            background-color: #b61d1d;
+        }
+
+        #banners {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 730px;
+        }
+
+        #banners li {
+            display: none;
+            float: left;
+        }
+
+        #banners li.active {
+            display: block;
+        }
+
+        .btn-prev, .btn-next {
+            position: absolute;
+            top: 50%;
+            margin-top: -31px;
+            color: #fff;
+            width: 28px;
+            height: 62px;
+            line-height: 62px;
+            background: rgba(0, 0, 0, .2);
+            text-align: center;
+            font-size: 22px;
+            font-weight: 400;
+            font-family: simsun;
+        }
+
+        .btn-prev {
+            left: 0px;
+        }
+
+        .btn-next {
+            right: 0px;
+        }
+
+        #btns {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<dl id="nav" class="left-nav">
+    <dt><a href="javascript:;">全部商品分类</a></dt>
+    <dd index="1">
+        <div class="left-title">家用电器 <span class="ico">></span></div>
+        <div class="right-list">家用电器</div>
+    </dd>
+    <dd index="2">
+        <div class="left-title">手机、数码、京东通信<span class="ico">></span></div>
+        <div class="right-list">手机、数码、京东通信</div>
+    </dd>
+    <dd index="3">
+        <div class="left-title">电脑、办公<span class="ico">></span></div>
+        <div class="right-list">电脑、办公</div>
+    </dd>
+    <dd index="4">
+        <div class="left-title">家居、家具、家装、厨具<span class="ico">></span></div>
+        <div class="right-list">家居、家具、家装、厨具</div>
+    </dd>
+    <dd index="5">
+        <div class="left-title">男装、女装、内衣、珠宝<span class="ico">></span></div>
+        <div class="right-list">男装、女装、内衣、珠宝</div>
+    </dd>
+    <dd index="6">
+        <div class="left-title">个户化妆、清洁用品<span class="ico">></span></div>
+        <div class="right-list">个户化妆、清洁用品</div>
+    </dd>
+    <dd index="7">
+        <div class="left-title">鞋靴、箱包、钟表、奢侈品<span class="ico">></span></div>
+        <div class="right-list">鞋靴、箱包、钟表、奢侈品</div>
+    </dd>
+    <dd index="8">
+        <div class="left-title">运动户外<span class="ico">></span></div>
+        <div class="right-list">运动户外</div>
+    </dd>
+    <dd index="9">
+        <div class="left-title">汽车、汽车用品<span class="ico">></span></div>
+        <div class="right-list">汽车、汽车用品</div>
+    </dd>
+    <dd index="10">
+        <div class="left-title">母婴、玩具乐器<span class="ico">></span></div>
+        <div class="right-list">母婴、玩具乐器</div>
+    </dd>
+    <dd index="11">
+        <div class="left-title">食品、酒类、生鲜、特产<span class="ico">></span></div>
+        <div class="right-list">食品、酒类、生鲜、特产</div>
+    </dd>
+    <dd index="12">
+        <div class="left-title">营养保健<span class="ico">></span></div>
+        <div class="right-list">营养保健</div>
+    </dd>
+    <dd index="13">
+        <div class="left-title">图书、音像、电子书<span class="ico">></span></div>
+        <div class="right-list">图书、音像、电子书</div>
+    </dd>
+    <dd index="14">
+        <div class="left-title">彩票、旅行、充值、票务<span class="ico">></span></div>
+        <div class="right-list">彩票、旅行、充值、票务</div>
+    </dd>
+    <dd index="15">
+        <div class="left-title">彩票、旅行、充值、票务<span class="ico">></span></div>
+        <div class="right-list">彩票、旅行、充值、票务</div>
+    </dd>
+</dl>
+
+<div id="wrap" class="banner-box">
+    <ul id="banners">
+        <li class="active"><img src="Images/1.jpg" alt=""/></li>
+        <li><img src="Images/2.jpg" alt=""/></li>
+        <li><img src="Images/3.jpg" alt=""/></li>
+        <li><img src="Images/4.jpg" alt=""/></li>
+        <li><img src="Images/5.jpg" alt=""/></li>
+        <li><img src="Images/6.jpg" alt=""/></li>
+    </ul>
+    <ul id="tips" class="tips">
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+    <div id="btns">
+        <a id="btnprev" class="btn-prev" href="javascript:;"><</a>
+        <a id="btnnext" class="btn-next" href="javascript:;">></a>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+    (function () {
+
+
+        var nav = $("#nav");
+        var dds = nav.children("dd");
+
+        var bannerUl = $("#banners");
+        var $lis = bannerUl.children("li");
+        var tips = $("#tips").children("li");
+        //左侧选项卡
+        dds.bind("mouseenter", function () {
+            $(this).addClass("cur").siblings().removeClass("cur");
+            var srcollT = document.documentElement.scrollTop || document.body.scrollTop;
+            if (srcollT > 150) {
+                //         $(this).children("div")[1].css({"top": srcollT - 150 + 50});
+                $($(this).children("div")[1]).css({"top": srcollT - 150 + 50});
+            }
+        })
+        dds.bind("mouseleave", function () {
+            $(this).removeClass("cur");
+            $($(this).children("div")[1]).css({"top": 45});
+        })
+
+        var step = 0;
+        var autoTimer = window.setInterval(play, 2000);
+
+        function play() {
+            step++;
+            if (step === $lis.length) {
+                step = 0;
+            }
+            $lis.removeClass("active").css({"opacity": 0});
+            $($lis[step]).addClass("active").stop().animate({"opacity": 1}, 500);
+            $(tips[step]).addClass("cur").siblings().removeClass("cur");
+        }
+
+        tips.bind("mouseenter", function () {
+            $(this).addClass("cur").siblings().removeClass("cur");
+            window.clearInterval(autoTimer);
+            step = $(this).index() - 1;
+            play();
+            autoTimer = window.setInterval(play, 2000);
+        })
+        var $wrap = $("#wrap"), $prev = $("#btnprev"), $next = $("#btnnext");
+        $wrap.bind("mouseenter", function () {
+            $("#btns").show();
+        });
+        $wrap.bind("mouseleave", function () {
+            $("#btns").hide();
+        });
+        $next.bind("click", function () {
+            window.clearInterval(autoTimer);
+            play();
+            autoTimer = window.setInterval(play, 2000);
+        });
+        $prev.bind("click", function () {
+            window.clearInterval(autoTimer);
+            step = step === 0 ? $lis.length - 1-2 : step-2;
+            play();
+            autoTimer = window.setInterval(play, 2000);
+        });
+    })();
+
+
+</script>
+</body>
+</html>

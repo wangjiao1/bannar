@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="reset.css"/>
+    <style type="text/css">
+        .outer {
+            position: relative;
+            margin: 20px auto;
+            width: 1226px;
+            height: 460px;
+            overflow: hidden;
+        }
+
+        .inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 7356px;
+            height: 460px;
+
+        }
+
+        .outer a.btnLeft, .outer a.btnRight {
+            position: absolute;
+            top: 50%;
+            margin-top: -34.5px;
+            width: 40px;
+            height: 69px;
+            background: url("img/icon-slides.png") no-repeat -83px 0;
+        }
+
+        .outer a.btnLeft {
+            left: 235px;
+        }
+
+        .outer a.btnLeft:hover {
+            background-position: 0 0;
+        }
+
+        .outer a.btnRight {
+            right: 0;
+            background-position: -127px 0;
+        }
+
+        .outer a.btnRight:hover {
+            background-position: -42px 0;
+        }
+
+        .inner img {
+            float: left;
+            width: 1226px;
+            height: 460px;
+        }
+
+        .outer .tip {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            list-style: none;
+        }
+
+        .outer .tip li {
+            float: left;
+            list-style: none;
+            margin-left: 15px;
+            width: 7px;
+            height: 7px;
+            border: 2px solid grey;
+            background: #000;
+            opacity: 0.5;
+        alpha(opacity = 50);
+            border-radius: 50%;
+        }
+
+        .outer .tip li.bgColor {
+            background-color: transparent;
+        }
+
+        .outer .list {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 235px;
+            height: 460px;
+        }
+
+        .outer .bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 235px;
+            height: 460px;
+            background: #000;
+            opacity: 0.5;
+        alpha(opacity = 50);
+        }
+
+        .outer .list {
+            padding: 20px 0;
+        }
+
+        .outer .list li {
+            height: 42px;
+            line-height: 42px;
+        }
+
+        .outer .list .listBg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .outer .list li div {
+            position: relative;
+            height: 42px;
+            line-height: 42px;
+        }
+
+        .outer .list li a {
+            margin: 0 35px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .outer .list li a span {
+            position: absolute;
+            right: 30px;
+            top: -2px;
+            font-size: 18px;
+        }
+
+        /*.listBg {*/
+        /*display: none;*/
+        /*}*/
+        .listBg .list .listDetail {
+            display: none;
+            position: absolute;
+            left: 235px;
+            top: 0;
+            width: 233px;
+            height: 458px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-left-color: #fff;
+        }
+
+        .listBg .list .listDetail li {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="outer" class="outer">
+    <div id="inner" class="inner">
+        <img src="img/T12ZW_BgZv1RXrhCrK.jpg"/>
+        <img src="img/T17QEgBj_T1RXrhCrK.jpg"/>
+        <img src="img/T1fUJ_BgWv1RXrhCrK.jpg"/>
+        <img src="img/T1bYAvBjJv1RXrhCrK.jpg"/>
+        <img src="img/T1lVh_ByJv1RXrhCrK.jpg"/>
+        <img src="img/T12ZW_BgZv1RXrhCrK.jpg"/>
+    </div>
+    <a href="javascript:;" class="btnLeft" id="btnLeft"></a>
+    <a href="javascript:;" class="btnRight" id="btnRight"></a>
+    <ul class="tip" id="tip">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="listBg" class="listBg">
+        <div id="bg" class="bg"></div>
+        <ul id="list" class="list">
+            <li>
+                <div class="liBg"><a href="###">小米手机<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">平板电脑<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>11</li>
+                        <li>21</li>
+                        <li>31</li>
+                        <li>41</li>
+                        <li>51</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米盒子<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>111</li>
+                        <li>211</li>
+                        <li>311</li>
+                        <li>411</li>
+                        <li>511</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米充电宝<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>1111</li>
+                        <li>2111</li>
+                        <li>3111</li>
+                        <li>4111</li>
+                        <li>5111</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米配件<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>11111</li>
+                        <li>21111</li>
+                        <li>31111</li>
+                        <li>41111</li>
+                        <li>51111</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米服装<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>111111</li>
+                        <li>211111</li>
+                        <li>311111</li>
+                        <li>411111</li>
+                        <li>511111</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米手机壳<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>1111111</li>
+                        <li>21111111</li>
+                        <li>31111111</li>
+                        <li>41111111</li>
+                        <li>51111111</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米电视<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>111111111</li>
+                        <li>2111111111</li>
+                        <li>3111111111</li>
+                        <li>4111111111</li>
+                        <li>5111111111</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米插线板<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>11111111111</li>
+                        <li>21111111111</li>
+                        <li>31111111111</li>
+                        <li>41111111111</li>
+                        <li>51111111111</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="liBg"><a href="###">小米箱包<span>></span></a></div>
+                <div class="listDetail">
+                    <ul>
+                        <li>111111111111</li>
+                        <li>2111111111111</li>
+                        <li>3111111111111</li>
+                        <li>4111111111111</li>
+                        <li>5111111111111</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script charset="UTF-8" type="text/javascript" src="js/utils.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js/animate.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js/bannar.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js/nav.js"></script>
+</body>
+</html>
