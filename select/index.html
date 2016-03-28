@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        body, div, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .clearfix:before, .clearfix:after {
+            display: block;
+            clear: both;
+            overflow: visible;
+            content: '';
+        }
+
+        .box {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            background: url("images/TV1-Big.jpg") no-repeat top center;
+        }
+
+        .menu-box {
+            position: absolute;
+            left: 50%;
+            margin-left: -500px;
+            bottom: 40px;
+            width: 1000px;
+            height: 65px;
+        }
+
+        .menu-box ul li {
+            float: left;
+            list-style: none;
+            margin: 7px 7px 7px 0px;
+        }
+
+        .menu-box ul li a {
+            display: block;
+            width: 79px;
+            height: 44px;
+            opacity: 0.5;
+            border: 3px solid transparent;
+            overflow: hidden;
+        }
+
+        .menu-box ul li a img {
+            width: 85px;
+            height: 50px;
+            margin-left: -3px;
+            margin-top: -3px;
+        }
+
+        .menu-ul {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -300px;
+            height: 100%;
+        }
+
+        .menu-box1 {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+
+        .menu-ul .menu-smallimg {
+            border: 3px solid #ff7b00;
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box-bg">
+    <div class="menu-box">
+        <div class="menu-box1"></div>
+        <ul id="menu" class="clearfix menu-ul">
+            <li><a class="menu-smallimg" href="javascript:;"><img src="images/TV1-Small.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="images/TV2-Small.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="images/TV3-Small.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="images/TV4-Small.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="images/TV5-Small.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="images/TV6-Small.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="images/TV7-Small.jpg" alt=""/></a></li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var oUl = document.getElementById('menu');
+    var elementA = oUl.getElementsByTagName('a');
+    var oDiv = document.getElementById('box-bg');
+    var hidImgs = [
+        "images/TV1-Big.jpg",
+        "images/TV2-Big.jpg",
+        "images/TV3-Big.jpg",
+        "images/TV4-Big.jpg",
+        "images/TV5-Big.jpg",
+        "images/TV6-Big.jpg",
+        "images/TV7-Big.jpg"
+    ];
+    for (var i = 0; i < elementA.length; i++) {
+        elementA[i].index = i;
+        elementA[i].onmouseover = function () {
+            for (var j = 0; j < elementA.length; j++) {
+                elementA[j].className = null;
+            }
+            this.className = 'menu-smallimg';
+            var bigImgUrl = hidImgs[this.index];
+            oDiv.style.background = 'url(' + bigImgUrl + ') no-repeat top center';
+        }
+    }
+
+</script>
+</body>
+</html>
