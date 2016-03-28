@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .textSeven .top{
+            background: #8ac024;
+            width: 84px;
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 4px 4px 0 0;
+        }
+        .textSeven .bottom{
+            padding: 10px 35px;
+            width: 1110px;
+            border: 1px solid #8ac024;
+            position: relative;
+            overflow: hidden;
+        }
+         .textSeven .bottom .center{
+            height: 140px;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .textSeven .bottom .center .inner{
+            position: relative;
+        }
+         .textSeven .bottom .center .inner div{
+            width: 170px;
+            height: 140px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .textSeven .bottom .center .inner div .small{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .textSeven .bottom .center .inner div .small .up{
+            width: 100%;
+            height: 100px;
+            border: none;
+            display: block;
+        }
+         .textSeven .bottom .center .inner div .small .down{
+            width: 100%;
+            height: 40px;
+            border: none;
+            display: block;
+        }
+        .textSeven .bottom .center .inner div .big{
+            opacity: 0;
+            filter: alpha(opacity=0);
+            position: absolute;
+            top: 0;
+            left: 170px;
+            z-index: -1;
+            display: none;
+            padding-left: 20px;
+        }
+        .textSeven .bottom .ic-left{
+            width: 15px;
+            height: 26px;
+            cursor: pointer;
+            text-indent: -999px;
+            position: absolute;
+            top: 50%;
+            margin-top: -13px;
+            left: 4px;
+            background: url("img/arrow-left.png") no-repeat 50%;
+        }
+        .textSeven .bottom .ic-right{
+            width: 15px;
+            height: 26px;
+            cursor: pointer;
+            text-indent: -999px;
+            position: absolute;
+            top: 50%;
+            margin-top: -13px;
+            right: 4px;
+            background: url("img/arrow-right.png") no-repeat 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="textSeven">
+    <div class="top">推广广告</div>
+    <div class="bottom">
+        <div class="ic-left"></div>
+        <!-- 显示区-->
+        <div class="center">
+            <!-- 内容-->
+            <div class="inner">
+                <div style="left: 0;">
+                    <!--小图-->
+                    <a href="##" class="small">
+                        <img src="imgs/1-1.jpg" class="up"/>
+                        <img src="imgs/1-2.jpg" class="down"/>
+                    </a>
+                    <!--长图-->
+                    <a href="##" class="big">
+                        <img src="imgs/1-3.jpg"/>
+                    </a>
+                </div>
+                <div style="left: 190px">
+                    <!--小图-->
+                    <a href="##" class="small">
+                        <img src="imgs/2-1.jpg" class="up"/>
+                        <img src="imgs/2-2.jpg" class="down"/>
+                    </a>
+                    <!--长图-->
+                    <a href="##" class="big">
+                        <img src="imgs/2-3.jpg"/>
+                    </a>
+                </div>
+                <div style="left: 380px">
+                    <!--小图-->
+                    <a href="##" class="small">
+                        <img src="imgs/3-1.jpg" class="up"/>
+                        <img src="imgs/3-2.jpg" class="down"/>
+                    </a>
+                    <!--长图-->
+                    <a href="##" class="big">
+                        <img src="imgs/3-3.jpg"/>
+                    </a>
+                </div>
+                <div style="left: 570px">
+                    <!--小图-->
+                    <a href="##" class="small">
+                        <img src="imgs/4-1.jpg" class="up"/>
+                        <img src="imgs/4-2.jpg" class="down"/>
+                    </a>
+                    <!--长图-->
+                    <a href="##" class="big">
+                        <img src="imgs/4-3.jpg"/>
+                    </a>
+                </div>
+                <div style="left: 760px">
+                    <!--小图-->
+                    <a href="##" class="small">
+                        <img src="imgs/5-1.jpg" class="up"/>
+                        <img src="imgs/5-2.jpg" class="down"/>
+                    </a>
+                    <!--长图-->
+                    <a href="##" class="big">
+                        <img src="imgs/5-3.jpg"/>
+                    </a>
+                </div>
+                <div style="left: 950px">
+                    <!--小图-->
+                    <a href="##" class="small">
+                        <img src="imgs/6-1.jpg" class="up"/>
+                        <img src="imgs/6-2.jpg" class="down"/>
+                    </a>
+                    <!--长图-->
+                    <a href="##" class="big">
+                        <img src="imgs/6-3.jpg"/>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="ic-right"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function(){
+        var oDivs=document.getElementsByClassName("textSeven")[0].getElementsByClassName("center")[0].getElementsByClassName("inner")[0].getElementsByTagName("div");
+        var oBigs=document.getElementsByClassName("textSeven")[0].getElementsByClassName("center")[0].getElementsByClassName("inner")[0].getElementsByClassName("big");
+        //->getCss:获取当前元素的某一个样式信息值
+        function getCss(curEle, attr) {
+            var val = reg = null;
+            if ("getComputedStyle" in window) {
+                val = window.getComputedStyle(curEle, null)[attr];
+            } else {
+                if (attr === "opacity") {
+                    val = curEle.currentStyle["filter"];
+                    reg = /^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;
+                    val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+                } else {
+                    val = curEle.currentStyle[attr];
+                }
+            }
+            reg = /^-?\d+(\.\d+)?(px|pt|em|rem)?$/;
+            return reg.test(val) ? parseFloat(val) : val;
+        }
+
+        //->getCss:设置当前元素的某一个样式的属性值
+        function setCss(curEle, attr, value) {
+            if (attr === "float") {
+                curEle["style"]["cssFloat"] = value;
+                curEle["style"]["styleFloat"] = value;
+                return;
+            }
+
+            if (attr === "opacity") {
+                value < 0 ? value = 0 : null;
+                value > 1 ? value = 1 : null;
+                curEle["style"]["opacity"] = value;
+                curEle["style"]["filter"] = "alpha(opacity=" + value * 100 + ")";
+                return;
+            }
+
+            var reg = /^(width|height|left|top|bottom|right|(padding|margin(Top|Left|Right|Bottom)?))$/;
+            if (reg.test(attr)) {
+                reg = /^-?\d+(\.\d+)?$/;
+                if (reg.test(value)) {
+                    curEle["style"][attr] = value + "px";
+                    return;
+                }
+            }
+            curEle["style"][attr] = value;
+        }
+
+
+        //->wangjiaoEffect:设定运动的方式
+        var wangjiaoEffect = {
+            //->匀速
+            //->t:已经走的时间 b:起始的位置 c:总距离(目标位置-起始位置) d:总时间
+            Linear: function (t, b, c, d) {
+                return c * t / d + b;
+            }
+        };
+
+        //->tarObj:存储的是当前元素运动的目标位置的样式集合->{left:1000,width:200,opacity:1...}
+        //->duration:当前运动的总时间
+        //->effect:运动的效果(匀速、加速、减速...)
+        //->callBack:回调函数,当动画运动完成后需要做的事情都写在这个函数中
+        function animate(curEle, tarObj, duration, effect, callBack) {
+
+            var tempEffect = wangjiaoEffect.Linear;
+
+            //->根据传递进来的目标值，分别获取每一个方向的起始值和总距离
+            var beginObj = {}, changeObj = {};
+            for (var key in tarObj) {
+                if (tarObj.hasOwnProperty(key)) {
+                    beginObj[key] = getCss(curEle, key);
+                    changeObj[key] = tarObj[key] - beginObj[key];
+                }
+            }
+
+            //->开启我们的动画
+            var time = 0, interval = 13;
+
+            var timer = window.setInterval(function () {
+                time += interval;
+
+                //->我们走的时间已经大于等于总时间,说明到达目标位置了,我们让当前元素的样式等于目标位置的值,并且执行回调函数
+                if (time >= duration) {
+                    for (var key in tarObj) {
+                        if (tarObj.hasOwnProperty(key)) {
+                            setCss(curEle, key, tarObj[key]);
+                        }
+                    }
+                    typeof callBack === "function" ? callBack.call(curEle) : null;
+                    window.clearInterval(timer);
+                    return;
+                }
+
+                //->还没有到达目标位置,我们随时设置元素的最新样式值,最新样式通过effect存储的公式获取到
+                for (key in changeObj) {
+                    if (changeObj.hasOwnProperty(key)) {
+                        var curVal = tempEffect(time, beginObj[key], changeObj[key], duration);
+                        setCss(curEle, key, curVal);
+                    }
+                }
+            }, interval);
+        }
+        for(var a=0;a<oDivs.length;a++){
+
+            (function(a){
+                oDivs[a].onmouseover=function(e){
+                    e=e||window.event;
+                    e.target= e.target|| e.srcElement;
+                    if(e.target==oDivs[a]||oBigs[a]){
+                        for(var i=0;i<oDivs.length;i++){
+                            oBigs[i].onmouseover=function(){
+                                return false
+                            };
+
+                            if(i<=a){
+                                if(i===5){
+                                    animate(oDivs[4],{left:0},300);
+                                    animate(oDivs[5],{left:190},300);
+                                    for(var k=0;k<oBigs.length;k++){
+                                        oBigs[k].style.display="none";
+                                    }
+                                    oBigs[5].style.display="block";
+                                    oBigs[5].style.zIndex=0;
+
+                                    animate(oBigs[5],{opacity:1},300);
+
+                                    continue
+                                }
+                                animate(oDivs[i],{left:0},300);
+                                for(k=0;k<oBigs.length;k++){
+                                    oBigs[k].style.display="none";
+                                }
+                                oBigs[i].style.display="block";
+                                oBigs[i].style.zIndex=0;
+
+                                animate(oBigs[i],{opacity:1},300)
+                            } else{
+                                animate(oDivs[i],{left:950},300)
+                            }
+                        }
+                    }
+                }
+            })(a);
+        }
+        for(var i=0;i<oDivs.length;i++){
+            (function(i){
+                oDivs[i].onmouseout=function(){
+                    for(var i=0;i<oDivs.length;i++){
+                        animate(oDivs[i],{left:i*190},300)
+                        animate(oBigs[i],{opacity:0},300);
+                    }
+                    for(var k=0;k<oBigs.length;k++){
+                        oBigs[k].style.zIndex=-1
+                    }
+                }
+            })(i);
+        }
+    })();
+</script>
+</body>
+</html>
