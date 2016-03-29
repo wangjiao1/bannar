@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <style type="text/css">
+        #ul1 {
+            padding: 10px;
+        }
+
+        #ul1 li {
+            padding: 10px 0;
+            height: 60px;
+            border-bottom: 1px dashed purple;
+        }
+
+        #ul1 li.bg {
+            background-color: #ccc;
+        }
+
+        #ul1 li .left {
+            float: left;
+            width: 75px;
+            height: 60px;
+        }
+
+        #ul1 li .left img {
+            width: 100%;
+            height: 100%;
+            background: url("img/default.jpg") no-repeat center center;
+            background-size: 100% 100%;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        #ul1 li .right {
+            margin-left: 80px;
+        }
+
+        #ul1 li .right h2 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: "Microsoft Yahei";
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #ul1 li .right p {
+            font-family: "Microsoft Yahei";
+            line-height: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1"></ul>
+</body>
+</html>
+<script charset="utf-8" type="text/javascript" src="js/json.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/utilis.js"></script>
+<script type="text/javascript">
+    var oUl = document.getElementById("ul1");
+    var imgList = oUl.getElementsByTagName("img");
+    var oLis = oUl.getElementsByTagName("li");
+    function bindData() {
+        var str = "";
+        for (var i = 0; i < dataAry.length; i++) {
+            var cur = dataAry[i];
+            str += "<li>";
+            str += "<div class='left'><img src='img/default.jpg' trueImg='" + cur.logo + "'/></div>";
+            str += "<div class='right'><h2>" + cur.title + "</h2><p>" + cur.desc + "</p></div>";
+            str += "</li>";
+        }
+        oUl.innerHTML = str;
+    }
+    bindData();
+
+    function init() {
+        for (var i = 0; i < imgList.length; i++) {
+            ~function (i) {
+                var curImg = imgList[i];
+                if (curImg.isload) return;
+
+                var curT = utilis.offset(curImg).top + curImg.offsetHeight;
+                var winT = utilis.win("scrollTop") + utilis.win("clientHeight");
+                if (winT >= curT) {
+                    var oImg = new Image;
+                    oImg.src = curImg.getAttribute("trueImg");
+                    oImg.onload = function () {
+                        curImg.src = this.src;
+                        curImg.isload = true;
+                        fadeIn(curImg);
+                    }
+                }
+            }(i)
+        }
+    };
+    function fadeIn(curImg) {
+        var count = 0;
+        var timer = window.setInterval(function () {
+            if (count >= 1) {
+                curImg.style.opacity = count;
+                curImg.style.filter = "alpha(opacity=" + count * 100 + ")";
+                window.clearInterval(timer);
+                return;
+            }
+            count += 0.02;
+            curImg.style.opacity = count;
+            curImg.style.filter = "alpha(opacity=" + count * 100 + ")"
+        }, 10);
+    }
+    window.setTimeout(init, 2000);
+    window.onscroll = init;
+
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].onmouseover = function () {
+            this.className = "bg";
+        };
+        oLis[i].onmouseout = function () {
+            this.className = "";
+        }
+    }
+</script>
